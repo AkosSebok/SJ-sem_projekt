@@ -1,5 +1,5 @@
 <?php
-    include 'partials/header-admin.php';
+  include 'partials/header-admin.php';
 ?>
 
 <main class="main-content">

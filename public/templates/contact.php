@@ -1,5 +1,5 @@
 <?php
-include 'partials/header.php';
+  include 'partials/header.php';
 ?>
 
 <section id="intro" class="bg-light padding-large">
@@ -70,17 +70,6 @@ include 'partials/header.php';
 							</div>
 						</div>
 					</form>
-
-          <?php
-          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $db = new Database();
-            $connection = $db->getConnection();
-            $contact = new Contact($connection, $_POST);
-            if ($contact->store())
-              echo "Správa bola uložená do databázy!";
-          }
-          ?>
-
 				</div><!--contact-information-->
 
 			</div><!--col-md-6-->
@@ -156,6 +145,7 @@ include 'partials/header.php';
 <section class="google-map">
 	<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://getasearch.com/fmovies"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
 </section>
+
 <?php
 include 'partials/footer.php';
 ?>

@@ -1,6 +1,7 @@
 <?php
-    include 'partials/header-admin.php';
+  include 'partials/header-admin.php';
 ?>
+
 <main class="main-content">
     <div class="page-header">
         <h1 class="greeting">Blog CMS Admin Dashboard</h1>
@@ -152,11 +153,6 @@
             <a href="category-create.php" class="btn btn-ghost">+ New Category</a>
         </div>
         <div class="table-container">
-           <?php
-                $category = new Category();
-                $categories = $category->all();
-            ?>
-
             <table>
                 <thead>
                     <tr>
@@ -169,32 +165,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($categories as $cat): ?>
-                        <tr>
-                            <td>#<?php echo htmlspecialchars($cat["id"]); ?></td>
-                            <td><?php echo htmlspecialchars($cat["name"]); ?></td>
-                            <td><?php echo htmlspecialchars($cat["slug"]); ?></td>
-                            <td><?php echo htmlspecialchars($cat["description"]); ?></td>
-                            <td><?php echo "0"; ?></td>
-                            <td>
-                                <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                    <a href="#" class="btn btn-ghost">Edit</a>
-                                    
-                                    <a href="#" 
-                                    class="btn btn-ghost" 
-                                    onclick="return confirm('Naozaj chcete vymazať túto kategóriu?')">
-                                    Delete
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-
-                    <?php if (empty($categories)): ?>
-                        <tr>
-                            <td colspan="5" style="text-align: center;">Žiadne kategórie neboli nájdené.</td>
-                        </tr>
-                    <?php endif; ?>
                 </tbody>
             </table>
                 <thead>
@@ -263,6 +233,7 @@
         </div>
     </div>
 </main>
+
 <?php
     include 'partials/footer-admin.php';
 ?>

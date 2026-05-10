@@ -1,6 +1,7 @@
 <?php
-	include_once 'partials/header.php';
+  include 'partials/header.php';
 ?>
+
 <section id="slider" class="position-relative padding-xlarge no-padding-top">
 
 	<div class="container">
@@ -116,6 +117,7 @@
 		</div>
 	</div>
 </section>
+
 <?php
 include 'partials/footer.php';
 ?>

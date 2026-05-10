@@ -1,8 +1,3 @@
-<?php 
-	require_once '../../app/models/category.php';
-    require_once '../../app/core/database.php';
-?>
-
 <!DOCTYPE html>
 <html lang="sk">
 <head>

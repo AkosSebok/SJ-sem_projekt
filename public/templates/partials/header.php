@@ -1,24 +1,6 @@
-<?php
-	require_once '../../app/functions.php';
-	require_once '../../app/core/helper.php';
-	require_once '../../app/models/contact.php';
-	require_once '../../app/core/database.php';
-	require_once '../../app/models/category.php';
-
-	$category = new Category();
-	print_r($category->all());
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-		<?php
-			echo Helper::getPageTitle();
-		?>
-	</title>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

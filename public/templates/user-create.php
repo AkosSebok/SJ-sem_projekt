@@ -1,6 +1,3 @@
-<?php
-    include 'partials/header-admin.php';
-?>
 <main class="main-content">
     <div class="page-header">
         <h1 class="greeting">Create User</h1>
@@ -55,7 +52,3 @@
         </div>
     </div>
 </main>
-
-<?php
-    include 'partials/footer-admin.php';
-?>
