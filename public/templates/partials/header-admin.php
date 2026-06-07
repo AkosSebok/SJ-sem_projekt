@@ -13,7 +13,6 @@
 </head>
 <body>
     <div class="mobile-menu-overlay"></div>
-
     <div class="mobile-menu">
         <div class="mobile-menu-header">
             <a href="admin.php" class="logo">
@@ -31,7 +30,6 @@
                 </svg>
             </button>
         </div>
-
         <nav class="mobile-menu-nav">
             <a href="admin.php" class="active">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -72,7 +70,6 @@
                 Settings
             </a>
         </nav>
-
         <div class="mobile-menu-footer">
             <a href="login.php" class="mobile-logout-btn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -104,7 +101,6 @@
             </div>
         </div>
     </div>
-
     <div class="app-container">
         <nav class="top-nav">
             <div class="nav-container">
@@ -117,7 +113,6 @@
                         </div>
                         Blog Admin
                     </a>
-
                     <div class="nav-menu">
                         <div class="nav-item">
                             <a href="admin.php" class="nav-link active">
@@ -169,7 +164,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="nav-right">
                     <div class="theme-toggle">
                         <button class="theme-btn theme-btn-snow active" onclick="setTheme('snow')" title="Snow Edition">
@@ -191,12 +185,10 @@
                             </svg>
                         </button>
                     </div>
-
                     <button class="user-menu">
                         <div class="user-avatar">A</div>
                         <span class="user-name">Admin</span>
                     </button>
-
                     <a href="login.php" class="btn-logout" title="Logout">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
@@ -204,7 +196,6 @@
                             <line x1="21" y1="12" x2="9" y2="12"/>
                         </svg>
                     </a>
-
                     <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="3" y1="12" x2="21" y2="12"/>

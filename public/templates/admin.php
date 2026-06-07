@@ -7,7 +7,6 @@
         <h1 class="greeting">Blog CMS Admin Dashboard</h1>
         <p class="greeting-sub">Frontend pripravený pre správu blog postov, kategórií a používateľov.</p>
     </div>
-
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1rem; margin-bottom:1.5rem;">
         <div class="card" style="padding:1.25rem;">
             <p style="margin:0; color:var(--text-secondary); font-size:0.875rem;">Celkom blog postov</p>
@@ -26,7 +25,6 @@
             <h3 style="margin:0.5rem 0 0;">1</h3>
         </div>
     </div>
-
     <div class="card" style="margin-bottom:1.5rem;">
         <div class="card-header">
             <div>
@@ -40,7 +38,6 @@
             <a href="user-create.php" class="btn btn-ghost">+ Create User</a>
         </div>
     </div>
-
     <div class="card" id="blog-posts" style="margin-bottom:1.5rem;">
         <div class="card-header">
             <div>
@@ -143,7 +140,6 @@
             </table>
         </div>
     </div>
-
     <div class="card" id="categories" style="margin-bottom:1.5rem;">
         <div class="card-header">
             <div>
@@ -193,7 +189,6 @@
             </table>
         </div>
     </div>
-
     <div class="card" id="users">
         <div class="card-header">
             <div>
