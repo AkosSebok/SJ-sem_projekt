@@ -47,12 +47,6 @@
                 </svg>
                 Blog Posts
             </a>
-            <a href="#categories">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20.59 13.41 12 22l-8.59-8.59A2 2 0 0 1 2.83 12l8.58-8.59a2 2 0 0 1 2.83 0L22.83 12a2 2 0 0 1 0 2.83z"/>
-                </svg>
-                Categories
-            </a>
             <a href="#users">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -132,14 +126,6 @@
                                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                                 </svg>
                                 Blog Posts
-                            </a>
-                        </div>
-                        <div class="nav-item">
-                            <a href="#categories" class="nav-link">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20.59 13.41 12 22l-8.59-8.59A2 2 0 0 1 2.83 12l8.58-8.59a2 2 0 0 1 2.83 0L22.83 12a2 2 0 0 1 0 2.83z"/>
-                                </svg>
-                                Categories
                             </a>
                         </div>
                         <div class="nav-item">

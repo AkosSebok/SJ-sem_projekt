@@ -1849,3 +1849,9 @@ tr:hover td {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
 }
+
+.btn-delete:hover {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}

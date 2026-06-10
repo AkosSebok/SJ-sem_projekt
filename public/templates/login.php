@@ -6,13 +6,6 @@
     <title>Login - DayNight Admin</title>
     <script>if(localStorage.getItem("daynight-theme")==="carbon"){document.documentElement.classList.add("carbon");}</script>
     <link rel="stylesheet" href="../assets/css/admin.css">
-    <!--
-
-TemplateMo 608 DayNight Admin
-
-https://templatemo.com/tm-608-daynight-admin
-
--->
 </head>
 <body>
     <!-- Theme Toggle (Fixed Position) -->
