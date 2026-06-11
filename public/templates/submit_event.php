@@ -42,7 +42,9 @@
             <div class="col-md-6"> 
                 <div class="contact-information"> 
                     <h2>Event Information</h2> 
-                    <form action="submit_event.php" method="post" class="form-group contact-form mt-4"> 
+                    <form action="../models/create.php" method="post" class="form-group contact-form mt-4"> 
+                        <input type="hidden" name="redirect" value="../templates/home.php">
+                        <input type="hidden" name="source" value="submit_event">
                         <div class="row"> 
                             <div class="col-md-12"> 
                                 <input type="text" name="title" placeholder="Event Name" class="form-control mb-3" required> 
@@ -50,7 +52,7 @@
                         </div> 
                         <div class="row"> 
                             <div class="col-md-6"> 
-                                <input type="date" name="event_date" class="form-control mb-3" required> 
+                                <input type="date" name="date" class="form-control mb-3" required> 
                             </div> 
                             <div class="col-md-6"> 
                                 <input type="text" name="location" placeholder="Location" class="form-control mb-3" required> 
@@ -75,7 +77,7 @@
                         </div> 
                         <div class="row"> 
                             <div class="col-md-6"> 
-                                <input type="text" name="organizer" placeholder="Organizer Name" class="form-control mb-3" required> 
+                                <input type="text" name="username" placeholder="Organizer Name" class="form-control mb-3" required> 
                             </div> 
                             <div class="col-md-6"> 
                                 <input type="email" name="email" placeholder="Organizer Email" class="form-control mb-3" required> 
