@@ -1,13 +1,19 @@
 <?php
+    session_start();
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: ../templates/home.php');
+            exit;
+        }
+
     include 'partials/header-admin.php';
     require_once '../models/database.php';
+
     $database = new Database();
     $pdo = $database->connect();
     $eventsStmt = $pdo->query("SELECT e.*, u.username FROM events e LEFT JOIN users u ON e.created_by_id = u.id");
     $events = $eventsStmt->fetchAll(PDO::FETCH_ASSOC);
     $usersStmt = $pdo->query("SELECT u.*, COUNT(e.id) AS event_count FROM users u LEFT JOIN events e ON u.id = e.created_by_id GROUP BY u.id");
     $users = $usersStmt->fetchAll(PDO::FETCH_ASSOC);
-
     $totalEvents = $pdo->query("SELECT COUNT(*) FROM events")->fetchColumn();
     $totalUsers = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
 ?>

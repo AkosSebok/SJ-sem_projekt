@@ -1,14 +1,48 @@
+<?php
+    require_once '../models/database.php';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $database = new Database();
+        $pdo = $database->connect();
+        $username = trim($_POST['username']);
+        $email = trim($_POST['email']);
+        $password = trim($_POST['password']);
+        $stmt = $pdo->prepare(" SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$user) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare("INSERT INTO users(username, email, password, role) VALUES(?, ?, ?, 'user')");
+            $stmt->execute([$username, $email, $hashedPassword]);
+            header('Location: ../templates/home.php');
+            exit;
+        }
+        if ($user['username'] === $username && password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+            if ($user['role'] === 'admin') {
+                header('Location: ../templates/admin.php');
+            }
+            else {
+                header('Location: ../templates/home.php');
+            }
+            exit;
+        }
+        echo "<script> alert('Invalid username or password for this email.'); </script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - DayNight Admin</title>
+    <title>Local Events Hub - Login</title>
     <script>if(localStorage.getItem("daynight-theme")==="carbon"){document.documentElement.classList.add("carbon");}</script>
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
-    <!-- Theme Toggle (Fixed Position) -->
     <div class="login-theme-toggle">
         <div class="theme-toggle">
             <button class="theme-btn theme-btn-snow active" onclick="setTheme('snow')" title="Snow Edition">
@@ -32,7 +66,6 @@
         </div>
     </div>
 
-    <!-- Login Page -->
     <div class="login-page">
         <div class="login-container">
             <div class="login-card">
@@ -43,37 +76,35 @@
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                             </svg>
                         </div>
-                        <span>DayNight</span>
+                        <span>Local Events Hub</span>
                     </div>
-                    <h1 class="login-title">Welcome back</h1>
-                    <p class="login-subtitle">Sign in to your account to continue</p>
+                    <h1 class="login-title">Welcome to Local Events Hub</h1>
+                    <p class="login-subtitle">Login or create an account to submit and manage events.</p>
                 </div>
-
-                <form class="login-form">
+                <form class="login-form" method="post">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-input" placeholder="Choose a username" required>
+                    </div>
                     <div class="form-group">
                         <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="you@example.com">
+                        <input type="email" name="email" class="form-input" placeholder="you@example.com">
                     </div>
-                    
                     <div class="form-group">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                             <label class="form-label" style="margin-bottom: 0;">Password</label>
                             <a href="#" style="font-size: 0.8125rem; color: var(--accent);">Forgot password?</a>
                         </div>
-                        <input type="password" class="form-input" placeholder="Enter your password">
+                        <input type="password" name="password" class="form-input" placeholder="Enter your password">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); window.location.href='home.php';">
-                        Sign In
+                    <button type="submit" class="btn btn-primary" >
+                        Continue
                     </button>
                 </form>
                 <p class="login-footer">
                     Don't have an account? <a href="#">Sign up for free</a>
                 </p>
             </div>
-
-            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8125rem; color: var(--text-secondary);">
-                &copy; 2026 DayNight Admin. Designed by <a href="https://www.templatemo.com" target="_blank" rel="nofollow" style="color: var(--accent);">TemplateMo</a>
-            </p>
         </div>
     </div>
 

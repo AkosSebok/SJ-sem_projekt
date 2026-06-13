@@ -8,8 +8,7 @@
     $stmt = $pdo->prepare("SELECT * FROM events WHERE id = ? ");
     $stmt->execute([$id]);
     $event = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$event)
-    {
+    if (!$event) {
         die('Event not found');
     }
 ?>
@@ -65,10 +64,10 @@
                     <textarea rows="8" name="description" required style="width:100%; padding:0.85rem 1rem; border:1px solid var(--border-color); border-radius:12px; background:var(--surface-color); color:var(--text-primary); resize:vertical;"><?= htmlspecialchars($event['description']); ?></textarea>
                 </div>
                 <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-                    <button type="submit" class="btn">
+                    <button type="submit" class="btn btn-ghost">
                         Update Event
                     </button>
-                    <a href="../templates/admin.php" class="btn btn-ghost">
+                    <a href="../templates/admin.php" class="btn btn-cancel">
                         Cancel
                     </a>
                 </div>

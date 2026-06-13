@@ -1,5 +1,6 @@
 <?php
-    require_once 'database.php';
+    require_once '../models/database.php';
+
     $database = new Database();
     $pdo = $database->connect();
     $stmt = $pdo->prepare("UPDATE events SET title = ?, description = ?, date = ?, location = ?, category = ? WHERE id = ?");

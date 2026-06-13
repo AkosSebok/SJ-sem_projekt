@@ -1855,3 +1855,13 @@ tr:hover td {
     color: white;
     border-color: #dc3545;
 }
+
+.btn-cancel {
+    transition: 0.2s;
+}
+
+.btn-cancel:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}

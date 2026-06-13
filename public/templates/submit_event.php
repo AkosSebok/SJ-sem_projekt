@@ -1,5 +1,5 @@
 <?php
-  include 'partials/header.php';
+    include 'partials/header.php';
 ?>
 
 <section id="intro" class="bg-light padding-large">
