@@ -1,27 +1,28 @@
 <?php
     require_once '../models/database.php';
+    require_once '../models/user.php';
+    session_start();
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $database = new Database();
         $pdo = $database->connect();
+        $user = new User($pdo);
         $username = trim($_POST['username']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
-        $stmt = $pdo->prepare(" SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (!$user) {
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $pdo->prepare("INSERT INTO users(username, email, password, role) VALUES(?, ?, ?, 'user')");
-            $stmt->execute([$username, $email, $hashedPassword]);
+        $userModel = $user->findByEmail($email);
+        if (!$userModel) {
+            $id = $user->create($username, $email, $password);
+            $_SESSION['user_id'] = $id;
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = 'user';
             header('Location: ../templates/home.php');
             exit;
         }
-        if ($user['username'] === $username && password_verify($password, $user['password'])) {
-            session_start();
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
-            if ($user['role'] === 'admin') {
+        if ($userModel['username'] === $username && $user->verifyPassword($password, $userModel['password'])) {
+            $_SESSION['user_id'] = $userModel['id'];
+            $_SESSION['username'] = $userModel['username'];
+            $_SESSION['role'] = $userModel['role'];
+            if ($userModel['role'] === 'admin') {
                 header('Location: ../templates/admin.php');
             }
             else {
@@ -29,7 +30,10 @@
             }
             exit;
         }
-        echo "<script> alert('Invalid username or password for this email.'); </script>";
+        echo "<script> 
+            alert('Invalid username or password for this email.');
+            window.history.back();
+        </script>";
     }
 ?>
 

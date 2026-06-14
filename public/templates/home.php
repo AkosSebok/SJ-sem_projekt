@@ -12,7 +12,7 @@
 						<div class="story-title-wrap mt-3">
 							<div class="post-meta"><a href="events.php">Music Event</a></div>
 							<h2 class="story-title">
-								<a href="single-post.php">Summer Night Festival in the City Center</a>
+								<a href="home.php">Summer Night Festival in the City Center</a>
 							</h2>				
 							<p>
 								Live music, food trucks, and local artists. Join hundreds of visitors during one of the biggest summer events in town.
@@ -36,7 +36,7 @@
 						<div class="story-title-wrap mt-3">
 							<div class="post-meta"><a href="events.php">Workshop</a></div>
 							<h2 class="story-title">
-								<a href="single-post.php">Photography Workshop for Beginners</a>
+								<a href="home.php">Photography Workshop for Beginners</a>
 							</h2>				
 							<p>
 								Learn camera basics, lighting, and editing from local photographers in a hands-on workshop.
@@ -60,7 +60,7 @@
 						<div class="story-title-wrap mt-3">
 							<div class="post-meta"><a href="events.php">Sports</a></div>
 							<h2 class="story-title">
-								<a href="single-post.php">Community Football Tournament</a>
+								<a href="home.php">Community Football Tournament</a>
 							</h2>				
 							<p>
 								Local teams compete in a weekend football tournament open to players and spectators.
@@ -113,7 +113,7 @@
 		<div class="row">
 			<div class="post-item col-md-4">
 				<figure class="zoom-effect">
-					<a href="single-post.php" class="zoom-in">
+					<a href="home.php" class="zoom-in">
 						<img src="../assets/images/item1.jpg" alt="event" class="blogImg img-fluid" style="width:560px; height:397px; object-fit:cover;">
 					</a>
 				</figure>
@@ -122,7 +122,7 @@
 						<a href="events.php">Technology</a>
 					</div>
 					<h3 class="story-title">
-						<a href="single-post.php">Startup Networking Evening</a>
+						<a href="home.php">Startup Networking Evening</a>
 					</h3>				
 					<div class="entry-meta">
 						<span class="author">
@@ -138,7 +138,7 @@
 			</div>
 			<div class="post-item col-md-4">
 				<figure class="zoom-effect">
-					<a href="single-post.php" class="zoom-in">
+					<a href="home.php" class="zoom-in">
 						<img src="../assets/images/item2.jpg" alt="event" class="blogImg img-fluid" style="width:560px; height:397px; object-fit:cover;">
 					</a>
 				</figure>
@@ -147,7 +147,7 @@
 						<a href="events.php">Food Festival</a>
 					</div>
 					<h3 class="story-title">
-						<a href="single-post.php">Street Food Weekend</a>
+						<a href="home.php">Street Food Weekend</a>
 					</h3>				
 					<div class="entry-meta">
 						<span class="author">
@@ -163,7 +163,7 @@
 			</div>
 			<div class="post-item col-md-4">
 				<figure class="zoom-effect">
-					<a href="single-post.php" class="zoom-in">
+					<a href="home.php" class="zoom-in">
 						<img src="../assets/images/item3.jpg" alt="event" class="blogImg img-fluid" style="width:560px; height:397px; object-fit:cover;">
 					</a>
 				</figure>
@@ -172,7 +172,7 @@
 						<a href="events.php">Education</a>
 					</div>
 					<h3 class="story-title">
-						<a href="single-post.php">Programming Basics Bootcamp</a>
+						<a href="home.php">Programming Basics Bootcamp</a>
 					</h3>				
 					<div class="entry-meta">
 						<span class="author">

@@ -42,8 +42,8 @@
             <div class="col-md-6"> 
                 <div class="contact-information"> 
                     <h2>Event Information</h2> 
-                    <form action="../models/create.php" method="post" class="form-group contact-form mt-4"> 
-                        <input type="hidden" name="redirect" value="../templates/home.php">
+                    <form action="../models/controllers/create.php" method="post" class="form-group contact-form mt-4"> 
+                        <input type="hidden" name="redirect" value="../../templates/home.php">
                         <input type="hidden" name="source" value="submit_event">
                         <div class="row"> 
                             <div class="col-md-12"> 

@@ -7,15 +7,17 @@
 
     include 'partials/header-admin.php';
     require_once '../models/database.php';
+    require_once '../models/event.php';
+    require_once '../models/user.php';
 
     $database = new Database();
     $pdo = $database->connect();
-    $eventsStmt = $pdo->query("SELECT e.*, u.username FROM events e LEFT JOIN users u ON e.created_by_id = u.id");
-    $events = $eventsStmt->fetchAll(PDO::FETCH_ASSOC);
-    $usersStmt = $pdo->query("SELECT u.*, COUNT(e.id) AS event_count FROM users u LEFT JOIN events e ON u.id = e.created_by_id GROUP BY u.id");
-    $users = $usersStmt->fetchAll(PDO::FETCH_ASSOC);
-    $totalEvents = $pdo->query("SELECT COUNT(*) FROM events")->fetchColumn();
-    $totalUsers = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
+    $event = new Event($pdo);
+    $user = new User($pdo);
+    $eventsModel = $event->findAll();
+    $usersModel = $user->findAll();
+    $totalEvents = $event->count();
+    $totalUsers = $user->count();
 ?>
 
 <main class="main-content">
@@ -55,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($events as $event): ?>
+                    <?php foreach ($eventsModel as $event): ?>
                     <tr>
                         <td>#<?= $event['id']; ?></td>
                         <td>
@@ -83,7 +85,7 @@
                                 <a href="event-edit.php?id=<?= $event['id']; ?>" class="btn btn-ghost">
                                     Edit
                                 </a>
-                                <a href="../models/delete.php?type=event&id=<?= $event['id']; ?>" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this event?');">
+                                <a href="../models/controllers/delete.php?type=event&id=<?= $event['id']; ?>" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this event?');">
                                     Delete
                                 </a>
                             </div>
@@ -114,7 +116,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($users as $user): ?>
+                    <?php foreach ($usersModel as $user): ?>
                     <tr>
                         <td>#<?= $user['id']; ?></td>
                         <td>
@@ -133,7 +135,7 @@
                         </td>
                         <td>
                             <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="../models/delete.php?type=user&id=<?= $user['id']; ?>" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this user?');">
+                                <a href="../models/controllers/delete.php?type=user&id=<?= $user['id']; ?>" class="btn btn-delete" onclick="return confirm('Are you sure you want to delete this user?');">
                                     Delete
                                 </a>
                             </div>

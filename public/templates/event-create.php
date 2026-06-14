@@ -16,8 +16,8 @@
             <span class="badge badge-green">Create</span>
         </div>
         <div style="padding:0 1.5rem 1.5rem;">
-            <form action="../models/create.php" method="post">
-                <input type="hidden" name="redirect" value="../templates/admin.php">
+            <form action="../models/controllers/create.php" method="post">
+                <input type="hidden" name="redirect" value="../../templates/admin.php">
                 <input type="hidden" name="source" value="submit_event">
                 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1rem; margin-bottom:1rem;">
                     <div>
